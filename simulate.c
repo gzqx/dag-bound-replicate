@@ -48,6 +48,7 @@ DAG* newDAG(int numberOfV, char nameOfV[]){
         dag->nameToNumber[(int)nameOfV[i]]=i;
         dag->numberToName[i]=nameOfV[i];
     }
+    dag->deadline=0;
     return dag;
 }
 
@@ -66,41 +67,45 @@ int main(){
     int numberOfDAG=0;
 
     fscanf(data,"%d", &numberOfDAG);//get number of dags
-    DAG* dag[numberOfDAG];
+    DAG** dag=malloc(2*sizeof(DAG*));
     printf("Number of DAG is %d.\n", numberOfDAG);
 
     //read from data.txt and store them in to DAG[2]
-    for (int i = 0; i < 2; i++) {
+    for (int i = 0; i < 1; i++) {
         int numberOfV=0;
         fscanf(data,"%d",&numberOfV); //get number of vertices
+        printf("Number of Vertices is %d\n", numberOfV);
         char nameOfV[numberOfV];
         fscanf(data, "%s",nameOfV); //get name of vertices
+        //char nameOfV[6]={'A','B','C','D','E','F'};
         dag[i]=newDAG(numberOfV, nameOfV);
         for (int j = 0; j < numberOfV; j++) {
             char newEdgeHeadName;
             fscanf(data," %c",&newEdgeHeadName);
+            printf("get new edge %c", newEdgeHeadName);
             char newEdgeHeadNum=dag[i]->nameToNumber[(int)newEdgeHeadName];
             for (int k = 0; k < numberOfV; k++) {
                 int newEdgeNextExist=0;
                 fscanf(data,"%d",&newEdgeNextExist);
                 setEdge(dag[i],newEdgeHeadNum,k);
             }
-            printf("\n");
         }
     }
 
     //set deadline
-    dag[0]->deadline=45;
-    dag[1]->deadline=60;
+    //dag[0]->deadline=45;
+    //dag[1]->deadline=60;
 
-    //for (int i = 0; i < 6; i++) {
-    //    printf("%c:",dag[0]->nodeArray[i].name);
-    //    Edge* tempEdge=dag[0]->nodeArray[i].head;
-    //    while (tempEdge->next!=NULL) {
-    //        printf("%c ", tempEdge->nextName);
-    //    }
-    //    printf("\n");
-    //}
+    for (int i = 0; i < 6; i++) {
+        printf("%c:",dag[0]->nodeArray[i].name);
+        Edge* tempEdge=dag[0]->nodeArray[i].head;
+        if (tempEdge!=NULL) {
+            while (tempEdge->next!=NULL) {
+                printf("%c ", tempEdge->nextName);
+            }
+        }
+        printf("\n");
+    }
     
 
     return 0;
