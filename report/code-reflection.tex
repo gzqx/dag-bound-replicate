@@ -75,9 +75,9 @@ By uncommenting the prinf lines in the code, one can get a more verbose output a
 
 
 
-One immediate side-reflection on data is that although WCET for each node is randomized, since the longest path is the sum of multiple nodes, they form normal distribution and end up in similar length.
+One immediate side-reflection on data is that although WCET for each node is randomized, since the longest path is the sum of multiple nodes, they form normal distribution and end up in similar length. This causes that experiement result is not that random.
 
-It is also noticed that the Volume/Response ratio in G2 is smaller than G1. The reason is G2 is more parallel than G1, which produces a smaller $len(G)/vol(G)$ ratio and a larger $\sum len(\lambda)$. The topological difference also causes that the response time of G1 is more sensitive to change of the length of longest path than G2.
+It is also noticed that the Volume/Response ratio in G2 is smaller than G1. The reason is G2 is more parallel than G1, which produces a smaller $len(G)/vol(G)$ ratio and a larger $\sum len(\lambda)$. The topological difference also causes that the response time of G1 is more sensitive to change of the length of longest path than G2, i.e. a change in the size of longest path (when volume is similiar) will cause a larger change of response time in G1 than G2.
 
 \end{document}
 
