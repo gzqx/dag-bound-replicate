@@ -5,12 +5,12 @@
 This repository contains a brief summary of the algorithm, a C program running on data set `data.txt`, and a brief disscussion of the program.
 
 ## Report
-The report is [report.pdf](report.pdf).
+The report is [report.pdf](report/report.pdf).
 
 ## Program
 ### Build & Run
 - `cmake .` & `make`.
 - `./simulate`
 
-### Run 10 times
-- `./testrun.sh`.
+### Build & Run 10 times
+- `./testrun.sh > output.txt`.

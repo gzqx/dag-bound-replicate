@@ -1,0 +1,23 @@
+\documentclass[./report.tex]{subfiles}
+\begin{document}
+
+This section briefly explains the code and several assumptions.
+
+Input (data.txt) is in following format:
+
+\begin{tabular}{l}
+<number of matrices>\\
+<number of vertices>\\
+<matrix 1>\\
+<number of vertices>\\
+<matrix 2>\\
+\end{tabular}
+
+Number of matrices and vertices is added for convenience, and it is the de facto standard input format for most algorithm competitions, e.g. ACM-ICPC.
+
+DAGs are stored in adjacency list because input (and likely most DAG tasks) are sparse graph, adjacency list is significantly more space efficient than adjacency matrix ($O (|V|+|E|)$ vs. $O (|V|^2)$).
+
+The input has already been topological sorted, thus the algorithm to find the longest path is based on this assumption. Since the graph is guarentined to be DAG, it is trivial to implement topological sorting algorithms, e.g. Kahn's algorithm.
+
+
+\end{document}

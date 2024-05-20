@@ -1,0 +1,230 @@
+Term 1
+The WCET of each node of DAG G1 is:
+A:10
+B:6
+C:5
+D:4
+E:6
+F:8
+bound is 30+(39-0)/(3-0)bound is 30+(39-30)/(3-1)The response time of DAG G1 is 34.
+It succeeded in meeting the deadline.
+
+The WCET of each node of DAG G2 is:
+X:8
+Y:4
+Z:8
+P:4
+Q:9
+R:5
+S:2
+T:5
+bound is 22+(45-0)/(3-0)bound is 22+(45-22)/(3-1)The response time of DAG G2 is 33.
+It succeeded in meeting the deadline.
+
+Term 2
+The WCET of each node of DAG G1 is:
+A:10
+B:5
+C:7
+D:4
+E:8
+F:4
+bound is 27+(38-0)/(3-0)bound is 27+(38-27)/(3-1)The response time of DAG G1 is 32.
+It succeeded in meeting the deadline.
+
+The WCET of each node of DAG G2 is:
+X:4
+Y:8
+Z:6
+P:10
+Q:2
+R:2
+S:10
+T:8
+bound is 28+(50-0)/(3-0)bound is 28+(50-28)/(3-1)The response time of DAG G2 is 39.
+It succeeded in meeting the deadline.
+
+Term 3
+The WCET of each node of DAG G1 is:
+A:9
+B:8
+C:2
+D:3
+E:6
+F:2
+bound is 25+(30-0)/(3-0)bound is 25+(30-25)/(3-1)The response time of DAG G1 is 27.
+It succeeded in meeting the deadline.
+
+The WCET of each node of DAG G2 is:
+X:10
+Y:4
+Z:4
+P:7
+Q:8
+R:4
+S:9
+T:2
+bound is 20+(48-0)/(3-0)bound is 20+(48-20)/(3-1)The response time of DAG G2 is 34.
+It succeeded in meeting the deadline.
+
+Term 4
+The WCET of each node of DAG G1 is:
+A:6
+B:4
+C:10
+D:2
+E:3
+F:6
+bound is 19+(31-0)/(3-0)bound is 19+(31-19)/(3-1)The response time of DAG G1 is 25.
+It succeeded in meeting the deadline.
+
+The WCET of each node of DAG G2 is:
+X:9
+Y:7
+Z:10
+P:6
+Q:2
+R:10
+S:9
+T:9
+bound is 35+(62-0)/(3-0)bound is 35+(62-35)/(3-1)The response time of DAG G2 is 48.
+It succeeded in meeting the deadline.
+
+Term 5
+The WCET of each node of DAG G1 is:
+A:5
+B:9
+C:10
+D:4
+E:3
+F:4
+bound is 21+(35-0)/(3-0)bound is 21+(35-21)/(3-1)The response time of DAG G1 is 28.
+It succeeded in meeting the deadline.
+
+The WCET of each node of DAG G2 is:
+X:6
+Y:5
+Z:3
+P:2
+Q:5
+R:6
+S:2
+T:3
+bound is 20+(32-0)/(3-0)bound is 20+(32-20)/(3-1)The response time of DAG G2 is 26.
+It succeeded in meeting the deadline.
+
+Term 6
+The WCET of each node of DAG G1 is:
+A:8
+B:3
+C:4
+D:3
+E:6
+F:4
+bound is 21+(28-0)/(3-0)bound is 21+(28-21)/(3-1)The response time of DAG G1 is 24.
+It succeeded in meeting the deadline.
+
+The WCET of each node of DAG G2 is:
+X:8
+Y:4
+Z:5
+P:10
+Q:6
+R:3
+S:9
+T:9
+bound is 28+(54-0)/(3-0)bound is 28+(54-28)/(3-1)The response time of DAG G2 is 41.
+It succeeded in meeting the deadline.
+
+Term 7
+The WCET of each node of DAG G1 is:
+A:10
+B:6
+C:6
+D:7
+E:6
+F:7
+bound is 29+(42-0)/(3-0)bound is 29+(42-29)/(3-1)The response time of DAG G1 is 35.
+It succeeded in meeting the deadline.
+
+The WCET of each node of DAG G2 is:
+X:8
+Y:10
+Z:6
+P:8
+Q:2
+R:3
+S:5
+T:10
+bound is 31+(52-0)/(3-0)bound is 31+(52-31)/(3-1)The response time of DAG G2 is 41.
+It succeeded in meeting the deadline.
+
+Term 8
+The WCET of each node of DAG G1 is:
+A:6
+B:7
+C:8
+D:5
+E:4
+F:6
+bound is 23+(36-0)/(3-0)bound is 23+(36-23)/(3-1)The response time of DAG G1 is 29.
+It succeeded in meeting the deadline.
+
+The WCET of each node of DAG G2 is:
+X:4
+Y:5
+Z:10
+P:5
+Q:8
+R:5
+S:2
+T:5
+bound is 20+(44-0)/(3-0)bound is 20+(44-20)/(3-1)The response time of DAG G2 is 32.
+It succeeded in meeting the deadline.
+
+Term 9
+The WCET of each node of DAG G1 is:
+A:2
+B:7
+C:10
+D:4
+E:7
+F:4
+bound is 21+(34-0)/(3-0)bound is 21+(34-21)/(3-1)The response time of DAG G1 is 27.
+It succeeded in meeting the deadline.
+
+The WCET of each node of DAG G2 is:
+X:6
+Y:7
+Z:8
+P:6
+Q:7
+R:8
+S:2
+T:10
+bound is 31+(54-0)/(3-0)bound is 31+(54-31)/(3-1)The response time of DAG G2 is 42.
+It succeeded in meeting the deadline.
+
+Term 10
+The WCET of each node of DAG G1 is:
+A:7
+B:5
+C:8
+D:5
+E:4
+F:6
+bound is 22+(35-0)/(3-0)bound is 22+(35-22)/(3-1)The response time of DAG G1 is 28.
+It succeeded in meeting the deadline.
+
+The WCET of each node of DAG G2 is:
+X:6
+Y:4
+Z:8
+P:6
+Q:5
+R:3
+S:9
+T:2
+bound is 17+(43-0)/(3-0)bound is 17+(43-17)/(3-1)The response time of DAG G2 is 30.
+It succeeded in meeting the deadline.
+

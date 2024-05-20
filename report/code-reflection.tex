@@ -1,0 +1,83 @@
+\documentclass[./report.tex]{subfiles}
+\begin{document}
+
+The output is as output.txt in main folder.
+
+By uncommenting the prinf lines in the code, one can get a more verbose output as output-verbose.txt, and as Table~\ref{tab:dag-g1}.
+
+\begin{table}[htbp]
+  \centering
+  \caption{Output data of DAG G1 and G2.}
+  \label{tab:dag-g1}
+  \begin{minipage}[b]{0.45\linewidth}
+    \begin{tabular}{rrr}
+      \hline
+      Longest path&Vol&Response Time\\
+      \hline
+      30&	39&	34\\
+      \hline
+      27&	38&	32\\
+      \hline
+      25&	30&	27\\
+      \hline
+      19&	31&	25\\
+      \hline
+      21&	35&	28\\
+      \hline
+      21&	28&	24\\
+      \hline
+      29&	42&	35\\
+      \hline
+      23&	36&	29\\
+      \hline
+      21&	34&	27\\
+      \hline
+      22&	35&	28\\
+      \hline
+      Average&&\\
+      \hline
+      23.8	&34.8	&28.9\\
+      \hline
+    \end{tabular}
+  \end{minipage}
+  \begin{minipage}[b]{0.45\linewidth}
+      \begin{tabular}{rrr}
+        \hline
+        Longest Path&Vol&Response Time\\
+        \hline
+        22	&45	&33\\
+        \hline
+        28	&50	&39\\
+        \hline
+        20	&48	&34\\
+        \hline
+        35	&62	&48\\
+        \hline
+        20	&32	&26\\
+        \hline
+        28	&54	&41\\
+        \hline
+        31	&52	&41\\
+        \hline
+        20	&44	&32\\
+        \hline
+        31	&54	&42\\
+        \hline
+        17	&43	&30\\
+        \hline	
+        Average&&\\
+        \hline
+        25.2	&48.4	&36.6\\
+        \hline
+      \end{tabular}
+  \end{minipage}
+\end{table}
+
+
+
+One immediate side-reflection on data is that although WCET for each node is randomized, since the longest path is the sum of multiple nodes, they form normal distribution and end up in similar length.
+
+It is also noticed that the Volume/Response ratio in G2 is smaller than G1. The reason is G2 is more parallel than G1, which produces a smaller $len(G)/vol(G)$ ratio and a larger $\sum len(\lambda)$. The topological difference also causes that the response time of G1 is more sensitive to change of the length of longest path than G2.
+
+\end{document}
+

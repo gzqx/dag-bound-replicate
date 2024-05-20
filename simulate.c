@@ -157,6 +157,7 @@ Path* longestPathFromVertex(DAG* dag, int sourceVertex){
             int b=maxLength[i]+dag->nodeArray[j].WCET;
             maxLength[j]=a>b?a:b;
             recordPath[i]=a>b?recordPath[i]:j;
+            //following line will print the detailed information used to calculate the bound
             //printf("Current dealing with vertex %d and its adjacent %d: maxlength of %d is %d. maxlength of %d is %d+%d. Thus maxlength now is %d.\n Thus longest path to %d is from %d.\n",i,adVertex->nextIndex,j,a,i,maxLength[i],dag->nodeArray[j].WCET,maxLength[j],j,recordPath[j]);
             adVertex=adVertex->next;
         }
@@ -240,13 +241,11 @@ int main(){
 
     fscanf(data,"%d", &numberOfDAG);//get number of dags
     DAG* dag[numberOfDAG];
-    //printf("Number of DAG is %d.\n", numberOfDAG);
 
     //read from data.txt and store them in to DAG[2]
     for (int i = 0; i < numberOfDAG; i++) {
         int numberOfV=0;
         fscanf(data,"%d",&numberOfV); //get number of vertices
-        //printf("Number of Vertices is %d\n", numberOfV);
         char nameOfV[numberOfV];
         fscanf(data, "%s",nameOfV); //get name of vertices
         //char nameOfV[6]={'A','B','C','D','E','F'};
@@ -254,12 +253,10 @@ int main(){
         for (int j = 0; j < numberOfV; j++) {
             char newEdgeHeadName;
             fscanf(data," %c",&newEdgeHeadName);
-            //printf("get new edge %c\n", newEdgeHeadName);
             for (int k = 0; k < numberOfV; k++) {
                 int newEdgeNextExist=0;
                 fscanf(data,"%d",&newEdgeNextExist);
                 if (newEdgeNextExist) {
-                    //printf("I am setting edge from %d to %d\n",j,k);
                     setEdge(dag[i],j,k);
                     dag[i]->nodeArray[k].inDegree++;
                 }
@@ -271,50 +268,59 @@ int main(){
     dag[0]->deadline=45;
     dag[1]->deadline=60;
 
-    PathList* generalizedPathList=newPathList();
 
     //Algorithm 2
     for (int d = 0; d < numberOfDAG; d++) { 
-            int originVolDAG=dag[d]->Vol;
-            while (dag[d]->Vol!=0) {
-                Path* lambda=longestPathInDAG(dag[d]);
-                PathVertex* v=lambda->head;
-                while (v!=NULL && lambda->length!=0) {
-                    if (v->WCET==0) {
-                        pathRemove(lambda, v);
-                    }
-                    v=v->next;
+        PathList* generalizedPathList=newPathList();
+        int originVolDAG=dag[d]->Vol;
+        printf("The WCET of each node of DAG G%d is:\n",d+1);
+        printWCET(dag[d]);
+        while (dag[d]->Vol!=0) {
+            Path* lambda=longestPathInDAG(dag[d]);
+            PathVertex* v=lambda->head;
+            while (v!=NULL && lambda->length!=0) {
+                if (v->WCET==0) {
+                    pathRemove(lambda, v);
                 }
-                addPath(generalizedPathList, lambda);
-                resDAG(dag[d], lambda);
+                v=v->next;
             }
-            //Theorem 2
-            int R=INF;
-            int k=generalizedPathList->k<(m-1)?(generalizedPathList->k):(m-1);
-            for (int j = 0; j < k; j++) {
-                //len(G)=len(lambda_0)
-                int sumOfLen=0;
-                for (int i = 0; i < j; i++) {
-                    sumOfLen+=generalizedPathList->pathArray[i]->length;
-                }
-                int bound=(generalizedPathList->pathArray[0]->length)+(originVolDAG-sumOfLen)/(m-j);
-                //printf("bound is %d+(%d-%d)/(%d-%d)", (generalizedPathList->pathArray[0]->length),originVolDAG,sumOfLen,m,j);
-                R=R<bound?R:bound;
+            addPath(generalizedPathList, lambda);
+            resDAG(dag[d], lambda);
+        }
+        //Theorem 2
+        int R=INF;
+        int k=generalizedPathList->k<(m-1)?(generalizedPathList->k):(m-1);
+        for (int j = 0; j < k; j++) {
+            //len(G)=len(lambda_0)
+            int sumOfLen=0;
+            for (int i = 0; i < j; i++) {
+                sumOfLen+=generalizedPathList->pathArray[i]->length;
             }
+            int bound=(generalizedPathList->pathArray[0]->length)+(originVolDAG-sumOfLen)/(m-j);
+            //printf("bound is %d+(%d-%d)/(%d-%d)", (generalizedPathList->pathArray[0]->length),originVolDAG,sumOfLen,m,j);
+            R=R<bound?R:bound;
+        }
 
-            printf("\n");
-            printf("===================\n");
-            printf("The response time of DAG G%d is %d\n",d+1,R);
-            printf("It ");
-            if (R>dag[d]->deadline) {
-                printf("failed ");
-            }else{
-                printf("succeeded ");
+        printf("The response time of DAG G%d is %d.\n",d+1,R);
+        printf("It ");
+        if (R>dag[d]->deadline) {
+            printf("failed ");
+        }else{
+            printf("succeeded ");
+        }
+        printf("in meeting the deadline.\n");
+        printf("\n");
+        //free pathlist
+        for (int i = 0; i < generalizedPathList->k; i++) {
+            PathVertex* temp=generalizedPathList->pathArray[i]->head;
+            while(temp!=NULL){
+                PathVertex* temptemp=temp->next;
+                free(temp);
+                temp=temptemp;
             }
-            printf("in meeting the deadline\n");
-            printf("===================\n");
-            printf("\n");
-
+        }
+        free(generalizedPathList->pathArray);
+        free(generalizedPathList);
     }
 
     //free all memory used

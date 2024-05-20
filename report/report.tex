@@ -1,0 +1,47 @@
+\documentclass[a4paper]{article}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{fancyhdr}
+\usepackage{subfiles}
+\usepackage{enumerate}
+\usepackage{graphicx, subfig}
+\usepackage{float}
+\usepackage{blindtext}
+\usepackage{hyperref}
+\usepackage{appendix}
+\usepackage{biblatex}
+\usepackage{siunitx}
+\pagestyle{fancy}
+\hypersetup{hidelinks}
+\numberwithin{equation}{section}
+\addbibresource{./report.bib}
+
+\lhead{}
+\chead{}
+\rhead{}
+\title{Report on ``Bounding the Response Time of DAG Tasks Using Long Paths''}
+\author{John Doe\thanks{Since it is required to be put in public. Using anonymous name.}}
+
+
+\begin{document}
+\maketitle
+
+\section{Part 1}%
+\label{sec:summary}
+\subfile{summary.tex}
+
+\section{Code}%
+\label{sec:code}
+\subfile{code.tex}
+
+\section{Code Reflection}%
+\label{sec:code-reflection}
+\subfile{code-reflection.tex}
+
+
+
+\appendix
+\printbibliography
+
+\end{document}
+
